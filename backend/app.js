@@ -18,8 +18,15 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({extende:true}));
-app.use('/api/v1/reservation',reservationRouter)
+app.use('/api/v1/reservation',reservationRouter);
+
+app.length("/",(req,res,next)=>{return res.status(200).json({
+    success:true,
+    message:"HELLO WORLD",
+});
+});
+
 dbConnection();
 
-app.use(errorMiddleware)
-export default app
+app.use(errorMiddleware);
+export default app;
