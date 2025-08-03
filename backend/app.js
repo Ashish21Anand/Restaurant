@@ -13,6 +13,8 @@ import reservationRouter from './routes/reservationRoute.js';
 //dotenv.config({ path:"./config/config.env"});
 const app=express();
 console.log(process.env.FRONTEND_URL);
+console.log("CORS Origin:", process.env.FRONTEND_URL);
+
 
 
 app.use(cors({
