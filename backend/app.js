@@ -1,13 +1,19 @@
+import dotenv from "dotenv";
+dotenv.config({ path: "./config/config.env" }); // 👈 this must come at the top
+console.log("Frontend URL is:", process.env.FRONTEND_URL);
+
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+////import dotenv from "dotenv";
 import {dbConnection} from "./database/dbConnection.js";
 import {errorMiddleware} from "./error/error.js";
 import reservationRouter from './routes/reservationRoute.js';
 
-
+//dotenv.config({ path:"./config/config.env"});
 const app=express();
-dotenv.config({ path:"./config/config.env"});
+console.log(process.env.FRONTEND_URL);
+
 
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
